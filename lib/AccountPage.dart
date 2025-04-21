@@ -11,8 +11,6 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   final String username = "user123";
 
-  get onPressed => null;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
