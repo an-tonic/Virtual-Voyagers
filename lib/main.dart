@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'HomePage.dart';
 import 'CouponsPage.dart';
+import 'AccountPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -67,7 +68,7 @@ class _MainPageState extends State<MainPage> {
             CouponsPage(),
 
             /// Account page
-            Placeholder(),
+            AccountPage(),
           ][currentPageIndex],
     );
   }

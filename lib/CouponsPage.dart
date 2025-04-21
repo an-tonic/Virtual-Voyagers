@@ -23,7 +23,7 @@ class _CouponsPageState extends State<CouponsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Coupons Page')),
+      appBar: AppBar(title: const Text('Coupons')),
       body: SafeArea(
         child: Column(
           children: [
