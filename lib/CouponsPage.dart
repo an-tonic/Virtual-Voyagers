@@ -9,13 +9,25 @@ class CouponsPage extends StatefulWidget {
 }
 
 class _CouponsPageState extends State<CouponsPage> {
-  final List<String> coupons = <String>[
-    'Coupon A',
-    'Coupon B',
-    'Coupon C',
-    'Coupon D',
-    'Coupon E',
-    'Coupon F',
+  final List<Coupon> coupons = <Coupon>[
+    Coupon(
+      "Free entry to the market",
+      "1 free entry for an adult to any market before 1 July 2025",
+      1000,
+      Icon(Icons.store),
+    ),
+    Coupon(
+      "5% discount",
+      "5% discount for 1 purchase at the hand made market",
+      1500,
+      Icon(Icons.percent),
+    ),
+    Coupon(
+      "1 + 1 for drinks",
+      "Buy 1 drink at the cafeteria and get 1 more as a gift",
+      2000,
+      Icon(Icons.coffee),
+    ),
   ];
 
   get onPressed => null;
@@ -24,24 +36,37 @@ class _CouponsPageState extends State<CouponsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Coupons')),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(8),
-                itemCount: coupons.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return SizedBox(
-                    height: 50,
-                    child: Center(child: Text(coupons[index])),
-                  );
-                },
+      body: ListView.builder(
+          padding: const EdgeInsets.all(8),
+          itemCount: coupons.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Text(
+                coupons[index].title,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
-            ),
-          ],
+              subtitle: Text(coupons[index].description),
+              leading: coupons[index].icon,
+              trailing: OutlinedButton(
+                onPressed: onPressed,
+                style: Theme.of(context).outlinedButtonTheme.style,
+                child: Text("Redeem"),
+              ),
+            );
+          },
         ),
-      ),
     );
   }
+}
+
+class Coupon {
+  String title;
+
+  String description;
+
+  int value;
+
+  Icon icon;
+
+  Coupon(this.title, this.description, this.value, this.icon);
 }
