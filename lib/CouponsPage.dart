@@ -37,24 +37,24 @@ class _CouponsPageState extends State<CouponsPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Coupons')),
       body: ListView.builder(
-          padding: const EdgeInsets.all(8),
-          itemCount: coupons.length,
-          itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              title: Text(
-                coupons[index].title,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              subtitle: Text(coupons[index].description),
-              leading: coupons[index].icon,
-              trailing: OutlinedButton(
-                onPressed: onPressed,
-                style: Theme.of(context).outlinedButtonTheme.style,
-                child: Text("Redeem"),
-              ),
-            );
-          },
-        ),
+        padding: const EdgeInsets.all(8),
+        itemCount: coupons.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text(
+              coupons[index].title,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            subtitle: Text(coupons[index].description),
+            leading: coupons[index].icon,
+            trailing: OutlinedButton(
+              onPressed: onPressed,
+              style: Theme.of(context).outlinedButtonTheme.style,
+              child: Text("Redeem"),
+            ),
+          );
+        },
+      ),
     );
   }
 }
