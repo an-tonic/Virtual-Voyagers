@@ -11,23 +11,39 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Adventure> currentAdventures = <Adventure>[
-    Adventure('Cyprus Christmas Villages', 3, 5, "987 Limassol, Cyprus", "https://maps.app.goo.gl/V2KHK6wAYqjhqzjE6"),
-    Adventure('Hand Made Markets Larnaca', 4, 10, "987 Larnaca, Cyprus", "https://maps.app.goo.gl/V2KHK6wAYqjhqzjE6"),
+    Adventure(
+      'Frozen Adventure',
+      3,
+      5,
+      "987 Limassol, Cyprus",
+      "https://maps.app.goo.gl/V2KHK6wAYqjhqzjE6",
+      "assets/images/3.2.jpeg",
+    ),
+    Adventure(
+      'Lost Artifact Adventure',
+      4,
+      10,
+      "987 Larnaca, Cyprus",
+      "https://maps.app.goo.gl/V2KHK6wAYqjhqzjE6",
+      "assets/images/2.jpg",
+    ),
   ];
 
   final List<Adventure> otherAdventures = <Adventure>[
-    Adventure.name('Coffee Shops in Limassol'),
-    Adventure.name('The Best Souvlaki'),
-    Adventure.name('Bubble Tea in Limassol'),
+    Adventure.name('Echoing Depths Adventure', "assets/images/3.3.jpg"),
   ];
 
   get onPressed => null;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home', style: TextStyle(fontWeight: FontWeight.bold))),
+      appBar: AppBar(
+        title: const Text(
+          'Home',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -40,45 +56,45 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(16),
                 child: Text(
-                    "Hello! Ready for adventure?",
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Colors.indigo.shade900,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18
-                    )
+                  "Hello! Ready for adventure?",
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: Colors.indigo.shade900,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ),
             SizedBox(height: 5),
             Material(
-                elevation: 3,
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.deepOrange.shade200,
-                child: Container(
-                  width: 390,
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.all(16),
-                  child: Text(
-                      "Total points: 5000",
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Colors.indigo.shade900,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18
-                      )
+              elevation: 3,
+              borderRadius: BorderRadius.circular(10.0),
+              color: Colors.deepOrange.shade200,
+              child: Container(
+                width: 390,
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  "Total points: 5000",
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: Colors.indigo.shade900,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
                   ),
-                )
+                ),
+              ),
             ),
             SizedBox(height: 16),
             Divider(thickness: 2),
             Container(
               padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: Text(
-                  "Current Adventures",
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Colors.indigo.shade900,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18
-                  )
+                "Current Adventures",
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: Colors.indigo.shade900,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
             ),
             Expanded(
@@ -93,12 +109,12 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: Text(
-                  "Other Adventures",
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Colors.indigo.shade900,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18
-                  )
+                "Other Adventures",
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: Colors.indigo.shade900,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
             ),
             Expanded(
@@ -123,10 +139,18 @@ class Adventure {
   int progress = 0;
   String address = "";
   String google_point = "";
+  String image_path = "";
 
-  Adventure(this.name, this.progress, this.length, this.address, this.google_point);
+  Adventure(
+    this.name,
+    this.progress,
+    this.length,
+    this.address,
+    this.google_point,
+    this.image_path,
+  );
 
-  Adventure.name(this.name);
+  Adventure.name(this.name, this.image_path);
 
   double percent() {
     return progress / length;
@@ -147,47 +171,56 @@ class AdventureCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ScavengerHuntPage(adventure: adventure,),
+            builder: (context) => ScavengerHuntPage(adventure: adventure),
           ),
         );
       },
       child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      elevation: 3,
-      color: Colors.deepOrange.shade200,
-      child: SizedBox(
-        height: 80,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    adventure.name,
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                ),
-                Row(
-                  children: [
-                    LinearPercentIndicator(
-                      width: 140.0,
-                      lineHeight: 14.0,
-                      percent: adventure.percent(),
-                      backgroundColor: Colors.deepOrange.shade300,
-                      progressColor: Colors.deepOrange.shade700,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        elevation: 3,
+        color: Colors.deepOrange.shade200,
+        child: SizedBox(
+          height: 80,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Image(image: AssetImage(adventure.image_path)),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 190,
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      adventure.name,
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
-                    Text("${adventure.progress}/${adventure.length}"),
-                  ],
+                  ),
+                  Row(
+                    children: [
+                      LinearPercentIndicator(
+                        width: 140.0,
+                        lineHeight: 14.0,
+                        percent: adventure.percent(),
+                        backgroundColor: Colors.deepOrange.shade300,
+                        progressColor: Colors.deepOrange.shade700,
+                      ),
+                      Text("${adventure.progress}/${adventure.length}"),
+                    ],
+                  ),
+                ],
+              ),
+              IconButton(
+                onPressed: onPressed,
+                icon: Icon(
+                  Icons.play_circle,
+                  color: Colors.indigo.shade900,
+                  size: 30,
                 ),
-              ],
-            ),
-            IconButton(onPressed: onPressed, icon: Icon(Icons.play_circle, color: Colors.indigo.shade900, size: 30)),
-          ],
+              ),
+            ],
           ),
         ),
       ),
