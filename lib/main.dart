@@ -40,36 +40,45 @@ class _MainPageState extends State<MainPage> {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
       bottomNavigationBar: NavigationBar(
+        labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
+          return TextStyle(
+            color: Colors.indigo.shade900,
+            fontWeight: FontWeight.bold,
+          );
+        }),
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
           });
         },
         selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
+        destinations: <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home, color: Colors.indigo.shade900, size: 30),
+            icon: Icon(Icons.home_outlined, color: Colors.indigo.shade900, size: 30),
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.confirmation_num),
+            icon: Icon(Icons.confirmation_num, color: Colors.indigo.shade900, size: 30),
             label: 'Coupons',
           ),
-          NavigationDestination(icon: Icon(Icons.person), label: 'Account'),
+          NavigationDestination(
+            icon: Icon(Icons.person, color: Colors.indigo.shade900, size: 30),
+            label: 'Account',
+          ),
         ],
       ),
       body:
-          <Widget>[
-            /// Home page
-            HomePage(),
+      <Widget>[
+        /// Home page
+        HomePage(),
 
-            /// Coupons page
-            CouponsPage(),
+        /// Coupons page
+        CouponsPage(),
 
-            /// Account page
-            AccountPage(),
-          ][currentPageIndex],
+        /// Account page
+        AccountPage(),
+      ][currentPageIndex],
     );
   }
 }
