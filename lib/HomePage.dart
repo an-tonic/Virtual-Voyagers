@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:virtual_voyagers/ScavengerHunt.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,8 +12,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Adventure> currentAdventures = <Adventure>[
-    Adventure('Cyprus Christmas Villages', 3, 5),
-    Adventure('Hand Made Markets Larnaca', 4, 10),
+    Adventure('Cyprus Christmas Villages', 3, 5, "987 Limassol, Cyprus", "https://maps.app.goo.gl/V2KHK6wAYqjhqzjE6"),
+    Adventure('Hand Made Markets Larnaca', 4, 10, "987 Larnaca, Cyprus", "https://maps.app.goo.gl/V2KHK6wAYqjhqzjE6"),
   ];
 
   final List<Adventure> otherAdventures = <Adventure>[
@@ -22,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   get onPressed => null;
+
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +89,10 @@ class Adventure {
   String name;
   int length = 10;
   int progress = 0;
+  String address = "";
+  String google_point = "";
 
-  Adventure(this.name, this.progress, this.length);
+  Adventure(this.name, this.progress, this.length, this.address, this.google_point);
 
   Adventure.name(this.name);
 
@@ -106,41 +110,51 @@ class AdventureCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: LinearBorder(),
-      elevation: 0,
-      color: Colors.white,
-      child: SizedBox(
-        height: 80,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    adventure.name,
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                ),
-                Row(
-                  children: [
-                    LinearPercentIndicator(
-                      width: 140.0,
-                      lineHeight: 14.0,
-                      percent: adventure.percent(),
-                      backgroundColor: Theme.of(context).disabledColor,
-                      progressColor: Theme.of(context).primaryColor,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ScavengerHuntPage(adventure: adventure,),
+          ),
+        );
+      },
+      child: Card(
+        shape: LinearBorder(),
+        elevation: 0,
+        color: Colors.white,
+        child: SizedBox(
+          height: 80,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      adventure.name,
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
-                    Text("${adventure.progress}/${adventure.length}"),
-                  ],
-                ),
-              ],
-            ),
-            IconButton(onPressed: onPressed, icon: Icon(Icons.play_circle)),
-          ],
+                  ),
+                  Row(
+                    children: [
+                      LinearPercentIndicator(
+                        width: 140.0,
+                        lineHeight: 14.0,
+                        percent: adventure.percent(),
+                        backgroundColor: Theme.of(context).disabledColor,
+                        progressColor: Theme.of(context).primaryColor,
+                      ),
+                      Text("${adventure.progress}/${adventure.length}"),
+                    ],
+                  ),
+                ],
+              ),
+              IconButton(onPressed: onPressed, icon: Icon(Icons.play_circle)),
+            ],
+          ),
         ),
       ),
     );
