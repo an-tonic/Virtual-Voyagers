@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class AccountPage extends StatelessWidget {
-  const AccountPage({Key? key}) : super(key: key);
+  const AccountPage({super.key});
 
   final String username = "userVoyager123";
 
@@ -35,7 +35,7 @@ class AccountPage extends StatelessWidget {
 }
 
 class _ProfileInfoRow extends StatelessWidget {
-  const _ProfileInfoRow({Key? key}) : super(key: key);
+  const _ProfileInfoRow();
 
   final List<ProfileInfoItem> _items = const [
     ProfileInfoItem("Adventures", 0),
@@ -51,34 +51,39 @@ class _ProfileInfoRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children:
-            _items
-                .map(
-                  (item) => Expanded(
-                    child: Row(
-                      children: [
-                        if (_items.indexOf(item) != 0) const VerticalDivider(),
-                        Expanded(child: _singleItem(context, item)),
-                      ],
-                    ),
-                  ),
-                )
-                .toList(),
+        _items
+            .map(
+              (item) => Expanded(
+            child: Row(
+              children: [
+                if (_items.indexOf(item) != 0) const VerticalDivider(),
+                Expanded(child: _singleItem(context, item)),
+              ],
+            ),
+          ),
+        )
+            .toList(),
       ),
     );
   }
 
-  Widget _singleItem(BuildContext context, ProfileInfoItem item) => Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          item.value.toString(),
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+  Widget _singleItem(BuildContext context, ProfileInfoItem item) => Material(
+    elevation: 3,
+    borderRadius: BorderRadius.circular(10.0),
+    color: Colors.deepOrange.shade200,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            item.value.toString(),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+          ),
         ),
-      ),
-      Text(item.title, style: Theme.of(context).textTheme.bodyMedium),
-    ],
+        Text(item.title, style: Theme.of(context).textTheme.titleMedium),
+      ],
+    ),
   );
 }
 
@@ -90,7 +95,7 @@ class ProfileInfoItem {
 }
 
 class _TopPortion extends StatelessWidget {
-  const _TopPortion({Key? key}) : super(key: key);
+  const _TopPortion();
 
   @override
   Widget build(BuildContext context) {
@@ -99,11 +104,11 @@ class _TopPortion extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.only(bottom: 50),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              colors: [Color(0xff0043ba), Color(0xff006df1)],
+              colors: [Colors.indigo.shade900, Colors.indigo.shade800],
             ),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(50),

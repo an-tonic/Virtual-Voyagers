@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -26,29 +25,58 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(title: const Text('Home', style: TextStyle(fontWeight: FontWeight.bold))),
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                "Hello! Ready for adventure?",
-                style: Theme.of(context).textTheme.bodyLarge,
+            Material(
+              elevation: 3,
+              borderRadius: BorderRadius.circular(10.0),
+              color: Colors.deepOrange.shade200,
+              child: Container(
+                width: 390,
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(16),
+                child: Text(
+                    "Hello! Ready for adventure?",
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.indigo.shade900,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18
+                    )
+                ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                "Total points: 5000",
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
+            SizedBox(height: 5),
+            Material(
+                elevation: 3,
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.deepOrange.shade200,
+                child: Container(
+                  width: 390,
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.all(16),
+                  child: Text(
+                      "Total points: 5000",
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Colors.indigo.shade900,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18
+                      )
+                  ),
+                )
             ),
+            SizedBox(height: 16),
+            Divider(thickness: 2),
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: Text(
-                "Current Adventures",
-                style: Theme.of(context).textTheme.titleMedium,
+                  "Current Adventures",
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Colors.indigo.shade900,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18
+                  )
               ),
             ),
             Expanded(
@@ -61,10 +89,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: Text(
-                "Other Adventures",
-                style: Theme.of(context).textTheme.titleMedium,
+                  "Other Adventures",
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Colors.indigo.shade900,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18
+                  )
               ),
             ),
             Expanded(
@@ -107,9 +139,11 @@ class AdventureCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: LinearBorder(),
-      elevation: 0,
-      color: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      elevation: 3,
+      color: Colors.deepOrange.shade200,
       child: SizedBox(
         height: 80,
         child: Row(
@@ -131,15 +165,15 @@ class AdventureCard extends StatelessWidget {
                       width: 140.0,
                       lineHeight: 14.0,
                       percent: adventure.percent(),
-                      backgroundColor: Theme.of(context).disabledColor,
-                      progressColor: Theme.of(context).primaryColor,
+                      backgroundColor: Colors.deepOrange.shade300,
+                      progressColor: Colors.deepOrange.shade700,
                     ),
                     Text("${adventure.progress}/${adventure.length}"),
                   ],
                 ),
               ],
             ),
-            IconButton(onPressed: onPressed, icon: Icon(Icons.play_circle)),
+            IconButton(onPressed: onPressed, icon: Icon(Icons.play_circle, color: Colors.indigo.shade900, size: 30)),
           ],
         ),
       ),
