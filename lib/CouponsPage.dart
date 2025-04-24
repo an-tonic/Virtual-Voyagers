@@ -10,22 +10,23 @@ class CouponsPage extends StatefulWidget {
 class _CouponsPageState extends State<CouponsPage> {
   final List<Coupon> coupons = <Coupon>[
     Coupon(
-      "Free entry to the market",
-      "1 free entry for an adult to any market before 1 July 2025",
+      "20% discount",
+      "20% off in your next purchase",
       1000,
-      Icon(Icons.store, color: Colors.indigo.shade900, size: 30),
+      'assets/images/4.png',
     ),
     Coupon(
-      "5% discount",
-      "5% discount for 1 purchase at the hand made market",
+      "1 + 1 drinks",
+      "Buy 1 drink and get 1 more as a gift",
       1500,
-      Icon(Icons.percent, color: Colors.indigo.shade900, size: 30),
+      'assets/images/5.jpg',
     ),
+    Coupon("Free mcBurger", "Get a free mcBurger", 2000, 'assets/images/6.png'),
     Coupon(
-      "1 + 1 for drinks",
-      "Buy 1 drink at the cafeteria and get 1 more as a gift",
+      "10% discount",
+      "10% off in your next purchase",
       2000,
-      Icon(Icons.coffee, color: Colors.indigo.shade900, size: 30),
+      'assets/images/7.jpg',
     ),
   ];
 
@@ -34,33 +35,53 @@ class _CouponsPageState extends State<CouponsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Coupons', style: TextStyle(fontWeight: FontWeight.bold))),
+      appBar: AppBar(
+        title: const Text(
+          'Coupons',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8),
         itemCount: coupons.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 3,
+            color: Colors.deepOrange.shade200,
+            child: ListTile(
+              title: Text(
+                coupons[index].title,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  color: Colors.indigo.shade900,
+                ),
               ),
-              elevation: 3,
-              color: Colors.deepOrange.shade200,
-              child: ListTile(
-                title: Text(
-                  coupons[index].title,
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.indigo.shade900),
+              subtitle: Text(
+                coupons[index].description,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              leading: Image(
+                image: AssetImage(coupons[index].image_path),
+                width: 60,
+              ),
+              trailing: OutlinedButton(
+                onPressed: onPressed,
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: Colors.indigo.shade900, width: 3),
+                  backgroundColor: Colors.deepOrange.shade400,
                 ),
-                subtitle: Text(coupons[index].description, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                leading: coupons[index].icon,
-                trailing: OutlinedButton(
-                  onPressed: onPressed,
-                  style: OutlinedButton.styleFrom(
-                    side: BorderSide(color: Colors.indigo.shade900, width: 3),
-                    backgroundColor: Colors.deepOrange.shade400,
+                child: Text(
+                  "Redeem",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.indigo.shade900,
+                    fontSize: 16,
                   ),
-                  child: Text("Redeem", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.indigo.shade900, fontSize: 16)),
                 ),
-              )
+              ),
+            ),
           );
         },
       ),
@@ -75,7 +96,7 @@ class Coupon {
 
   int value;
 
-  Icon icon;
+  String image_path;
 
-  Coupon(this.title, this.description, this.value, this.icon);
+  Coupon(this.title, this.description, this.value, this.image_path);
 }

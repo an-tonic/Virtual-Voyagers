@@ -51,18 +51,18 @@ class _ProfileInfoRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children:
-        _items
-            .map(
-              (item) => Expanded(
-            child: Row(
-              children: [
-                if (_items.indexOf(item) != 0) const VerticalDivider(),
-                Expanded(child: _singleItem(context, item)),
-              ],
-            ),
-          ),
-        )
-            .toList(),
+            _items
+                .map(
+                  (item) => Expanded(
+                    child: Row(
+                      children: [
+                        if (_items.indexOf(item) != 0) const VerticalDivider(),
+                        Expanded(child: _singleItem(context, item)),
+                      ],
+                    ),
+                  ),
+                )
+                .toList(),
       ),
     );
   }
@@ -130,9 +130,7 @@ class _TopPortion extends StatelessWidget {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(
-                        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-                      ),
+                      image: AssetImage('assets/images/8.jpg'),
                     ),
                   ),
                 ),
