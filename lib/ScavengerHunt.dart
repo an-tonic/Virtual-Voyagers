@@ -13,13 +13,10 @@ class ScavengerHuntPage extends StatefulWidget {
 }
 
 class _ScavengerHuntPageState extends State<ScavengerHuntPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.adventure.name),
-      ),
+      appBar: AppBar(title: Text(widget.adventure.name)),
       body: Stack(
         children: [
           // Replace this with your static map image
@@ -27,7 +24,9 @@ class _ScavengerHuntPageState extends State<ScavengerHuntPage> {
             boundaryMargin: const EdgeInsets.all(0.0),
             child: Image.asset(
               'assets/map_placeholder.png',
-              fit: BoxFit.contain, // Use BoxFit.contain to see the whole image initially
+              fit:
+                  BoxFit
+                      .contain, // Use BoxFit.contain to see the whole image initially
             ),
           ),
           Align(
@@ -54,8 +53,14 @@ class _ScavengerHuntPageState extends State<ScavengerHuntPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(Icons.add_task, color: Colors.redAccent),
-                      Text('${widget.adventure.progress}/${widget.adventure.length}', style: Theme.of(context).textTheme.titleMedium),
+                      Icon(
+                        Icons.add_task,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      Text(
+                        '${widget.adventure.progress}/${widget.adventure.length}',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 8.0),
@@ -71,13 +76,21 @@ class _ScavengerHuntPageState extends State<ScavengerHuntPage> {
                       children: [
                         const Icon(Icons.location_on, color: Colors.redAccent),
                         const SizedBox(width: 8.0),
-                        Text(widget.adventure.address, style: TextStyle(color: Colors.blue)),
+                        Text(
+                          widget.adventure.address,
+                          style: TextStyle(color: Colors.blue),
+                        ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 8.0),
-                  const Text('Quest X', style: TextStyle(fontWeight: FontWeight.bold)),
-                  const Text('Multiple Choice'),
+                  const Text(
+                    'Christmas Village',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    'A Christmas Village will be set up in the central square of Platres, during 10/12/21 - 6/1/22. Cultural events will take place during its opration and kiosks with festive delicacies, arts and crafts and other surprises will be establishd in the area.',
+                  ),
                   const SizedBox(height: 16.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,11 +109,9 @@ class _ScavengerHuntPageState extends State<ScavengerHuntPage> {
                         child: const Text('Back'),
                       ),
                       ElevatedButton(
-                        onPressed: () {
-
-                        },
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.orangeAccent,
+                          backgroundColor: Theme.of(context).primaryColor,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0),

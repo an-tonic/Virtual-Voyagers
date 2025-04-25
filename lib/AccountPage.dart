@@ -70,7 +70,7 @@ class _ProfileInfoRow extends StatelessWidget {
   Widget _singleItem(BuildContext context, ProfileInfoItem item) => Material(
     elevation: 3,
     borderRadius: BorderRadius.circular(10.0),
-    color: Colors.deepOrange.shade200,
+    color: Theme.of(context).primaryColor,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -78,10 +78,19 @@ class _ProfileInfoRow extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             item.value.toString(),
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 22,
+              color: Colors.white,
+            ),
           ),
         ),
-        Text(item.title, style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          item.title,
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(color: Colors.white),
+        ),
       ],
     ),
   );
@@ -108,7 +117,7 @@ class _TopPortion extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              colors: [Colors.indigo.shade900, Colors.indigo.shade800],
+              colors: [Colors.indigo.shade900, Theme.of(context).primaryColor],
             ),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(50),

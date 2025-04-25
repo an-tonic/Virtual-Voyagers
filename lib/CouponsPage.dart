@@ -50,17 +50,17 @@ class _CouponsPageState extends State<CouponsPage> {
               borderRadius: BorderRadius.circular(10.0),
             ),
             elevation: 3,
-            color: Colors.deepOrange.shade200,
+            color: Theme.of(context).primaryColor,
             child: ListTile(
               title: Text(
                 coupons[index].title,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  color: Colors.indigo.shade900,
+                  color: Colors.white,
                 ),
               ),
               subtitle: Text(
                 coupons[index].description,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, color: Colors.white),
               ),
               leading: Image(
                 image: AssetImage(coupons[index].image_path),
@@ -69,14 +69,14 @@ class _CouponsPageState extends State<CouponsPage> {
               trailing: OutlinedButton(
                 onPressed: onPressed,
                 style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.indigo.shade900, width: 3),
-                  backgroundColor: Colors.deepOrange.shade400,
+                  side: BorderSide(color: Colors.black, width: 3),
+                  backgroundColor: Colors.white,
                 ),
                 child: Text(
                   "Redeem",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.indigo.shade900,
+                    color: Colors.black,
                     fontSize: 16,
                   ),
                 ),

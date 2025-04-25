@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
       'Frozen Adventure',
       3,
       5,
-      "987 Limassol, Cyprus",
+      "Spyrou Kyprianou 55, Pano Platres",
       "https://maps.app.goo.gl/V2KHK6wAYqjhqzjE6",
       "assets/images/3.2.jpeg",
     ),
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             Material(
               elevation: 3,
               borderRadius: BorderRadius.circular(10.0),
-              color: Colors.deepOrange.shade200,
+              color: Theme.of(context).primaryColor,
               child: Container(
                 width: 390,
                 alignment: Alignment.center,
@@ -58,9 +58,9 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   "Hello! Ready for adventure?",
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: Colors.indigo.shade900,
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
             Material(
               elevation: 3,
               borderRadius: BorderRadius.circular(10.0),
-              color: Colors.deepOrange.shade200,
+              color: Theme.of(context).primaryColor,
               child: Container(
                 width: 390,
                 alignment: Alignment.center,
@@ -77,21 +77,20 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   "Total points: 5000",
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: Colors.indigo.shade900,
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
+                    color: Colors.white,
                   ),
                 ),
               ),
             ),
             SizedBox(height: 16),
-            Divider(thickness: 2),
+            Divider(thickness: 2, color: Colors.grey[200]),
             Container(
               padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: Text(
                 "Current Adventures",
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Colors.indigo.shade900,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -111,7 +110,6 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 "Other Adventures",
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Colors.indigo.shade900,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -180,7 +178,7 @@ class AdventureCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
         ),
         elevation: 3,
-        color: Colors.deepOrange.shade200,
+        color: Theme.of(context).primaryColor,
         child: SizedBox(
           height: 80,
           child: Row(
@@ -195,7 +193,9 @@ class AdventureCard extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       adventure.name,
-                      style: Theme.of(context).textTheme.titleSmall,
+                      style: Theme.of(
+                        context,
+                      ).textTheme.titleSmall?.copyWith(color: Colors.white),
                     ),
                   ),
                   Row(
@@ -204,10 +204,15 @@ class AdventureCard extends StatelessWidget {
                         width: 140.0,
                         lineHeight: 14.0,
                         percent: adventure.percent(),
-                        backgroundColor: Colors.deepOrange.shade300,
-                        progressColor: Colors.deepOrange.shade700,
+                        backgroundColor: Colors.white,
+                        progressColor: Color(0xFF0066FF),
                       ),
-                      Text("${adventure.progress}/${adventure.length}"),
+                      Text(
+                        "${adventure.progress}/${adventure.length}",
+                        style: Theme.of(
+                          context,
+                        ).textTheme.titleSmall?.copyWith(color: Colors.white),
+                      ),
                     ],
                   ),
                 ],
@@ -216,7 +221,7 @@ class AdventureCard extends StatelessWidget {
                 onPressed: onPressed,
                 icon: Icon(
                   Icons.play_circle,
-                  color: Colors.indigo.shade900,
+                  color: Colors.white,
                   size: 30,
                 ),
               ),

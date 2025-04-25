@@ -16,7 +16,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Virtual Voyagers',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme(
+          primary: Color(0xFF0099FF),
+          secondary: Color(0xFF94D4FF),
+          surface: Colors.white,
+          error: Colors.red,
+          onPrimary: Colors.white,
+          onSecondary: Colors.black,
+          onSurface: Colors.black,
+          onError: Colors.white,
+          brightness: Brightness.light,
+          // More colors
+        ),
       ),
       home: const MainPage(title: 'Virtual Voyagers Home Page'),
     );
@@ -42,7 +53,7 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: NavigationBar(
         labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
           return TextStyle(
-            color: Colors.indigo.shade900,
+            color: Colors.black,
             fontWeight: FontWeight.bold,
           );
         }),
@@ -54,16 +65,16 @@ class _MainPageState extends State<MainPage> {
         selectedIndex: currentPageIndex,
         destinations: <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home, color: Colors.indigo.shade900, size: 30),
-            icon: Icon(Icons.home_outlined, color: Colors.indigo.shade900, size: 30),
+            selectedIcon: Icon(Icons.home, color: theme.primaryColor, size: 30),
+            icon: Icon(Icons.home_outlined, color: theme.primaryColor, size: 30),
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.confirmation_num, color: Colors.indigo.shade900, size: 30),
+            icon: Icon(Icons.confirmation_num, color: theme.primaryColor, size: 30),
             label: 'Coupons',
           ),
           NavigationDestination(
-            icon: Icon(Icons.person, color: Colors.indigo.shade900, size: 30),
+            icon: Icon(Icons.person, color: theme.primaryColor, size: 30),
             label: 'Account',
           ),
         ],
