@@ -25,8 +25,8 @@ class _ScavengerHuntPageState extends State<ScavengerHuntPage> {
             child: Image.asset(
               'assets/map_placeholder.png',
               fit:
-                  BoxFit
-                      .contain, // Use BoxFit.contain to see the whole image initially
+              BoxFit
+                  .contain, // Use BoxFit.contain to see the whole image initially
             ),
           ),
           Align(
@@ -55,11 +55,17 @@ class _ScavengerHuntPageState extends State<ScavengerHuntPage> {
                     children: [
                       Icon(
                         Icons.add_task,
-                        color: Theme.of(context).primaryColor,
+                        color: Theme
+                            .of(context)
+                            .primaryColor,
                       ),
                       Text(
-                        '${widget.adventure.progress}/${widget.adventure.length}',
-                        style: Theme.of(context).textTheme.titleMedium,
+                        '${widget.adventure.progress}/${widget.adventure
+                            .length}',
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .titleMedium,
                       ),
                     ],
                   ),
@@ -111,7 +117,9 @@ class _ScavengerHuntPageState extends State<ScavengerHuntPage> {
                       ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Theme.of(context).primaryColor,
+                          backgroundColor: Theme
+                              .of(context)
+                              .primaryColor,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0),

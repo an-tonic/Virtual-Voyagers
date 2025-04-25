@@ -50,14 +50,20 @@ class _HomePageState extends State<HomePage> {
             Material(
               elevation: 3,
               borderRadius: BorderRadius.circular(10.0),
-              color: Theme.of(context).primaryColor,
+              color: Theme
+                  .of(context)
+                  .primaryColor,
               child: Container(
                 width: 390,
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(16),
                 child: Text(
                   "Hello! Ready for adventure?",
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .titleMedium
+                      ?.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     color: Colors.white,
@@ -69,14 +75,20 @@ class _HomePageState extends State<HomePage> {
             Material(
               elevation: 3,
               borderRadius: BorderRadius.circular(10.0),
-              color: Theme.of(context).primaryColor,
+              color: Theme
+                  .of(context)
+                  .primaryColor,
               child: Container(
                 width: 390,
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(16),
                 child: Text(
                   "Total points: 5000",
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .titleMedium
+                      ?.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     color: Colors.white,
@@ -90,7 +102,11 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: Text(
                 "Current Adventures",
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -109,7 +125,11 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(top: 16, left: 16, right: 16),
               child: Text(
                 "Other Adventures",
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -139,14 +159,12 @@ class Adventure {
   String google_point = "";
   String image_path = "";
 
-  Adventure(
-    this.name,
-    this.progress,
-    this.length,
-    this.address,
-    this.google_point,
-    this.image_path,
-  );
+  Adventure(this.name,
+      this.progress,
+      this.length,
+      this.address,
+      this.google_point,
+      this.image_path,);
 
   Adventure.name(this.name, this.image_path);
 
@@ -178,7 +196,9 @@ class AdventureCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
         ),
         elevation: 3,
-        color: Theme.of(context).primaryColor,
+        color: Theme
+            .of(context)
+            .primaryColor,
         child: SizedBox(
           height: 80,
           child: Row(
@@ -193,9 +213,13 @@ class AdventureCard extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       adventure.name,
-                      style: Theme.of(
+                      style: Theme
+                          .of(
                         context,
-                      ).textTheme.titleSmall?.copyWith(color: Colors.white),
+                      )
+                          .textTheme
+                          .titleSmall
+                          ?.copyWith(color: Colors.white),
                     ),
                   ),
                   Row(
@@ -209,9 +233,13 @@ class AdventureCard extends StatelessWidget {
                       ),
                       Text(
                         "${adventure.progress}/${adventure.length}",
-                        style: Theme.of(
+                        style: Theme
+                            .of(
                           context,
-                        ).textTheme.titleSmall?.copyWith(color: Colors.white),
+                        )
+                            .textTheme
+                            .titleSmall
+                            ?.copyWith(color: Colors.white),
                       ),
                     ],
                   ),

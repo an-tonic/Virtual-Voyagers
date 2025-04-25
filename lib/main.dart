@@ -52,10 +52,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
         labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
-          return TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          );
+          return TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
         }),
         onDestinationSelected: (int index) {
           setState(() {
@@ -66,11 +63,19 @@ class _MainPageState extends State<MainPage> {
         destinations: <Widget>[
           NavigationDestination(
             selectedIcon: Icon(Icons.home, color: theme.primaryColor, size: 30),
-            icon: Icon(Icons.home_outlined, color: theme.primaryColor, size: 30),
+            icon: Icon(
+              Icons.home_outlined,
+              color: theme.primaryColor,
+              size: 30,
+            ),
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.confirmation_num, color: theme.primaryColor, size: 30),
+            icon: Icon(
+              Icons.confirmation_num,
+              color: theme.primaryColor,
+              size: 30,
+            ),
             label: 'Coupons',
           ),
           NavigationDestination(
@@ -80,16 +85,16 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       body:
-      <Widget>[
-        /// Home page
-        HomePage(),
+          <Widget>[
+            /// Home page
+            HomePage(),
 
-        /// Coupons page
-        CouponsPage(),
+            /// Coupons page
+            CouponsPage(),
 
-        /// Account page
-        AccountPage(),
-      ][currentPageIndex],
+            /// Account page
+            AccountPage(),
+          ][currentPageIndex],
     );
   }
 }

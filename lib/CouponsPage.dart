@@ -54,9 +54,9 @@ class _CouponsPageState extends State<CouponsPage> {
             child: ListTile(
               title: Text(
                 coupons[index].title,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  color: Colors.white,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.headlineSmall?.copyWith(color: Colors.white),
               ),
               subtitle: Text(
                 coupons[index].description,
