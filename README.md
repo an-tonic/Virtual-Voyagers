@@ -68,13 +68,7 @@ This repository has:
 
 Chrystala Morfi morfichrystala@gmail.com - https://github.com/CMgitAccount
 
-Alena Muratova
-
 Kseniia Marchenko ksumar4enko@gmail.com - https://t.me/xmarchenko - https://github.com/mainex
-
-Antri Nikolaou
-
-Antoniy Serdyukov
 
 Project Link: https://github.com/an-tonic/Virtual-Voyagers
 
