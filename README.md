@@ -66,7 +66,7 @@ This repository has:
 
 ## Contact
 
-Chrystala Morfi morfichrystala@gmail.com
+Chrystala Morfi morfichrystala@gmail.com - https://github.com/CMgitAccount
 
 Alena Muratova
 
