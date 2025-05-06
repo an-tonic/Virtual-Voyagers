@@ -1,6 +1,6 @@
 # VirtualVoyagers
 
-Chrystala Morfi
+Chrystala Morfi morfichrystala@gmail.com
 
 Alena Muratova
 
@@ -66,7 +66,7 @@ This repository has:
 
 ## Contact
 
-Chrystala Morfi
+Chrystala Morfi morfichrystala@gmail.com
 
 Alena Muratova
 
