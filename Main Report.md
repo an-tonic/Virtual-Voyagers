@@ -18,11 +18,21 @@ https://github.com/an-tonic/Virtual-Voyagers
 
 ## Application Page Details
 
- - **The home page:** Showcasing the user's current adventure, the progress of the adventure, and the amount of points the player has accumulated thus far. Also, new adventure recommendations according to the user's location. 
+ - **The home page:** Showcasing the user's current adventure, the progress of the adventure, and the amount of points the player has accumulated thus far. Also, new adventure recommendations according to the user's location.
+
+<div align="center">
+ <img src="assets/images/Home.png" width="250">
+ <img src="assets/images/Adventure.png" width="250">
+</div>
 
  - **The coupons page:** Showcasing a variety of sponsored discounts from online or local shops in the form of coupons. The coupons can be bought with the points the user has accumulated from their adventures (e.g. scavenger hunts). An example, 20% off your next purchase in Alphamega. The coupons are redeemable in the location of the shop or online, if they have a website. A barcode will be revealed to the user after the purchasing of the coupons, through their points.  
 
- - **The adventures page:** Showcasing all the available adventures, both the newly added as well as the recommended. The page is connected with the home page, simply by scrolling down, the adventure list is revealed. All the recommended treasure hunts are available in the user's location, which can be simply tracked by the user's phone's feature, 'location'. 
+ - **The adventures page:** Showcasing all the available adventures, both the newly added as well as the recommended. The page is connected with the home page, simply by scrolling down, the adventure list is revealed. All the recommended treasure hunts are available in the user's location, which can be simply tracked by the user's phone's feature, 'location'.
+
+<div align="center">
+ <img src="assets/images/Coupons.png" width="250">
+ <img src="assets/images/Profile.png" width="250">
+</div>
 
  - **The profile page:** Showcasing the user's profile information, such as username, and password. Additionally, the total points gathered, the total adventures completed, and the total places visited. The user will be able to change their password alter their username and check their overall progress in the application. The profile of each user is private, and other users cannot see for the user's safety (e.g. location, adventure currently taking, username).  
 
