@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: const MainPage(title: 'Virtual Voyagers Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
